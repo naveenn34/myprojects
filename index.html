@@ -1,0 +1,124 @@
+<html>
+<head>
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <style>
+body{
+    background: #34495e;
+    margin: 0;
+    padding: 0;
+}
+.cs1 {
+    background-color: darkgray;
+    font-family: sans-serif;
+    font-weight: 400;
+    width: 300px;
+    padding: 40px;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #191919;
+    text-align: center;
+}
+.cs1 input{
+    border: 0;
+    background:none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border:2px solid #3498db;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+}
+.cs1 button{
+    border: 0;
+    background:none;
+    display: block;
+    margin: 15px auto;
+    text-align: center;
+    border:2px solid #3498db;
+    padding: 12px 8px;
+    width: 150px;
+    outline: none;
+    color: white;
+    border-radius: 28px;
+    border-color: green;
+}
+.cs1 button:hover{
+    background: #2ecc71;
+}
+.cs1 input:focus{
+    width: 280px;
+    border-color: #2ecc71;
+}
+.cs1 h1{
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-family:Sofia;
+}
+.invisible{
+    display: none;
+}
+.success{
+   border: 4px solid;
+   color:white;
+   font-family: "Montserrat";
+   font-size:large;
+   font-weight: 600;
+   border-radius: 0;
+   background: #34495e;
+   border-color:indianred;
+    text-align: center;
+    padding: 20px;
+    position: absolute;
+    top:50%;
+    left: 50%;
+   transform: translate(-50%,-50%);
+}
+</style>
+</head>
+<body>
+<form class="cs1">
+    <h1>profile</h1>
+    <input type="name" placeholder="Firstname" id="fs">
+    <input type="name" placeholder="Lastname" id="ls">
+    <input type="email" placeholder="Email" id="em">
+    <input type="number" placeholder="Phone Number" id="pn">
+    <button type="submit"><b>Send</b></button>
+</form>
+    <h2 class=""></h2>
+</body>
+<script>const button=document.querySelector('button');
+    const msg=document.querySelector('h2');
+    const form=document.querySelector('.cs1')
+    const fun=(ev)=>{
+        ev.preventDefault();
+        let obj={
+            fname: document.getElementById('fs').value,
+            lname: document.getElementById('ls').value,
+            email: document.getElementById('em').value,
+            phone: document.getElementById('pn').value
+        }
+        form.className="invisible"
+        msg.className="success"
+    msg.innerHTML=`<marquee direction="right" height="20%" style="color: black;"><h1>SUCCESSFULLY SENT!</h1></marquee><br>
+    <h2><u>Preview Your Details</u></h2><br>
+    Firstname : ${obj.fname}<br>
+    Lastname : ${obj.lname}<br>
+    EmailID : ${obj.email}<br>
+    PhoneNumber : ${obj.phone}<br>
+    <br>
+    <a href="index.html"><button class="cs2">Back</button></a>
+    <br>
+    <br>
+    <br>`
+    }
+    button.addEventListener('click',fun)
+    </script>
+</html>
