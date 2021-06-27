@@ -1,0 +1,84 @@
+<html>
+<head>
+    <title>Clock</title>
+</head>
+<body>
+    <div class="clock">
+        <div class="face">
+            <div class="hand hour"></div>
+            <div class="hand min"></div>
+            <div class="hand sec"></div>
+        </div>
+    </div>
+    <style>
+
+        html {
+      background:url('pb.png');
+      background-size: cover;
+      font-family: 'helvetica neue';
+      text-align: center;
+      font-size: 10px;
+    }
+    body {
+      margin: 0;
+      font-size: 2rem;
+      display: flex;
+      flex: 1;
+      align-items: center;
+    }
+    
+    .clock {
+      width: 350px;
+      height: 350px;
+      margin: 50px auto;
+      position: relative;
+      padding: 2rem;
+      
+    }
+    .face {
+      position: relative;
+      width: 350px;
+      height: 350px;
+      justify-content: center;
+      align-items: center;
+      transform: translateY(-3px); /* account for the height of the clock hands */
+      background: url('clock.png');
+      background-size: cover;
+      border: 5px solid #34495E ;
+      border-radius: 50%;
+    }
+    .hand {
+      width: 50%;
+      height: 5px;
+      background:#F9E79F;
+      position: absolute;
+      top: 50%;
+      transform-origin: 100%;
+      transform: rotate(90deg);
+      transition: all 0.05s;
+      transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+    }
+    </style>
+    <script>
+        const sec=document.querySelector('.sec')
+        const min=document.querySelector('.min')
+        const hour=document.querySelector('.hour')
+        function clock(){
+            const now =new Date()
+            const seconds=now.getSeconds();
+            const secdeg=((seconds/60)*360)+90;
+            sec.style.transform=`rotate(${secdeg}deg)`
+
+            const minutes=now.getMinutes()
+            const mindeg=((minutes/60)*360)+90;
+            min.style.transform=`rotate(${mindeg}deg)`
+
+            const hours=now.getHours()
+            const hourdeg=((hours/12)*360)+90;
+            hour.style.transform=`rotate(${hourdeg}deg)`
+        }
+        setInterval(clock,1000)
+    </script>
+      
+</body>
+</html>
